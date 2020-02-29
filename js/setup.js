@@ -17,10 +17,10 @@ function getRandomItem(array) {
   return array[getRandomNumb(0, array.length)];
 };
 
-function getSameWizard(idx) {
+function getSameWizard() {
   return {
     wizard: {
-      name: WIZARD_NAMES[idx] + ' ' + WIZARD_SURNAMES[idx],
+      name: getRandomItem(WIZARD_NAMES) + ' ' + getRandomItem(WIZARD_SURNAMES),
       coatColor: getRandomItem(WIZARD_COAT_COLOR),
       eyesColor: getRandomItem(WIZARD_EYES_COLOR)
     }
