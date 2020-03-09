@@ -39,23 +39,18 @@ function mockData() {
   return array;
 };
 
+function renderWizard(domElement, i) {
+  domElement.querySelector('.setup-similar-label').textContent = i.wizard.name;
+  domElement.querySelector('.wizard-coat').style.fill = i.wizard.coatColor;
+  domElement.querySelector('.wizard-eyes').style.fill = i.wizard.eyesColor;
+}
 
 function renderWizards() {
   var similarListElement = USER_DIALOG.querySelector('.setup-similar-list');
 
-  /*for (var i = 0; i < SAME_WIZARD_ARRAY.length; i++) {
-    var wizardElement = SIMILAR_WIZARD_TEMPLATE.cloneNode(true);
-    wizardElement.querySelector('.setup-similar-label').textContent = SAME_WIZARD_ARRAY[i].wizard.name;
-    wizardElement.querySelector('.wizard-coat').style.fill = SAME_WIZARD_ARRAY[i].wizard.coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = SAME_WIZARD_ARRAY[i].wizard.eyesColor;
-    similarListElement.appendChild(wizardElement);
-  }*/
-
   SAME_WIZARD_ARRAY.forEach(function (i) {
     var wizardElement = SIMILAR_WIZARD_TEMPLATE.cloneNode(true);
-    wizardElement.querySelector('.setup-similar-label').textContent = i.wizard.name;
-    wizardElement.querySelector('.wizard-coat').style.fill = i.wizard.coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = i.wizard.eyesColor;
+    renderWizard(wizardElement, i);
     similarListElement.appendChild(wizardElement);
   })
 
