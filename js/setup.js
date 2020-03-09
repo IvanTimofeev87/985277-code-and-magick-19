@@ -39,10 +39,11 @@ function mockData() {
   return array;
 };
 
-function renderWizard(domElement, i) {
+function renderWizard(renderBlock, domElement, i) {
   domElement.querySelector('.setup-similar-label').textContent = i.wizard.name;
   domElement.querySelector('.wizard-coat').style.fill = i.wizard.coatColor;
   domElement.querySelector('.wizard-eyes').style.fill = i.wizard.eyesColor;
+  renderBlock.appendChild(domElement);
 }
 
 function renderWizards() {
@@ -50,8 +51,7 @@ function renderWizards() {
 
   SAME_WIZARD_ARRAY.forEach(function (i) {
     var wizardElement = SIMILAR_WIZARD_TEMPLATE.cloneNode(true);
-    renderWizard(wizardElement, i);
-    similarListElement.appendChild(wizardElement);
+    renderWizard(similarListElement, wizardElement, i);
   })
 
 };
